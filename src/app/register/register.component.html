@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+
+    <div class="alert alert-danger alert-dismissable fuente-project" *ngIf="msgerr">
+      <a class="close" (click)="closeAlert()">
+        &times;
+      </a>
+      <h6>{{msgerr}}</h6>
+    </div>
+    <div class="alert alert-success alert-dismissable fuente-project" *ngIf="msgex">
+      <a class="close" (click)="closeAlertEx()">
+        &times;
+      </a>
+      <h6>{{msgex}}</h6>
+    </div>
+
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <span id="reauth-email" class="reauth-email"></span>
+      <input type="text"  formControlName="name" class="form-control" id="name"
+        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Name">
+
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required"> <label id="error">The name is required </label></div>
+      </div>
+
+      <input type="text"  formControlName="surname" class="form-control" id="surname"
+        [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" placeholder="Surname">
+
+      <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+        <div *ngIf="f.surname.errors.required"> <label id="error">The surname is required </label></div>
+      </div>
+
+      <input type="text"  formControlName="username" class="form-control" id="username"
+        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username">
+
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required"> <label id="error">The username is required </label></div>
+      </div>
+
+      <input type="password"  formControlName="password" class="form-control" id="password"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password">
+
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required"> <label id="error">The password is required </label></div>
+      </div>
+
+      <label for="roleSelect">Select Role</label>
+      <select  formControlName="role" class="form-control" id="role"
+        [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+        <option value="administrador">Administrador</option>
+        <option value="empleado">Empleado</option>
+      </select>
+
+      <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+          <div *ngIf="f.role.errors.required"> <label id="error">The role is required </label></div>
+        </div>
+
+      <br>
+      <button class="btn btn-lg btn-primary btn-block btn-register" type="submit">Register</button>
+      <button class="btn btn-lg btn-success btn-block btn-back" type="button" (click)="goToLogin()">Back</button>
+    </form><!-- /form -->
+  </div><!-- /card-container -->
+</div><!-- /container -->

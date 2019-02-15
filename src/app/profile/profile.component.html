@@ -1,0 +1,101 @@
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="assets/user.jpg" alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">{{email}}
+          </span>
+          <span class="user-role">{{role}}</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>Opciones</span>
+          </li>
+          <li class="sidebar-dropdown" *ngIf="role === 'administrador'">
+            <a href="introandexit">
+              <i class="fa fa-book"></i>
+              <span>Entrada y Salida</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown" *ngIf="role === 'administrador'">
+            <a href="reportsadmin">
+              <i class="fa fa-file"></i>
+              <span>Reportes Admin</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown" *ngIf="role === 'empleado'">
+            <a href="reportsuser">
+              <i class="fa fa-file"></i>
+              <span>Reportes Empleado</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown" *ngIf="role === 'administrador'">
+            <a href="profilesadmin">
+              <i class="fa fa-users"></i>
+              <span>Empleados</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="profile">
+        <i class="fa fa-cog"></i>
+        <span class="badge-sonar"></span>
+      </a>
+      <a href="#">
+        <i class="fa fa-power-off"></i>
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+      <br>
+      <div class="card" style="width:400px">
+          <img class="card-img-top" src="assets/user.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">Datos Usuario</h4>
+            <h6 class="card-title">Nombre </h6>
+            <p class="card-text"> {{nameUser}}</p>
+            <h6 class="card-title">Apellido </h6>
+            <p class="card-text"> {{surnameUser}}</p>
+            <h6 class="card-title">Email </h6>
+            <p class="card-text"> {{emailUser}}</p>
+            <h6 class="card-title">Rol </h6>
+            <p class="card-text">{{roleUser}}</p>
+          </div>
+        </div>
+    </div>
+  </main>
+  <!-- page-content" -->
+</div>
