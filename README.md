@@ -1,4 +1,4 @@
-# Frontrunahr
+# Frontend RunaHr
 
 npm install
 
